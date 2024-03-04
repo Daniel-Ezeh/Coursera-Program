@@ -67,23 +67,52 @@ def load_to_csv(df, csv_path):
 
 
 
-
-def load_to_db(df, *sql_connection, table_name):
+def load_to_db(df, sql_connection, table_name):
     sql_connection = sq.connect(db_name)
     df.to_sql(table_name, sql_connection, index=False, if_exists='replace')
     sql_connection.close()
 
-load_to_db(df, table_name=table_name)
+# load_to_db(df, table_name=table_name)
 
 
-def run_query(query_statement, query_connection):
-    pass
+
+def run_query(query_statement, sql_connection):
+    print(query_statement)
+    query_output = pd.read_sql(query_statement, sql_connection)
+    print(query_output)
 
 
-def log_progress(message):
-    pass
 
 
+def log_progress(message): 
+    timestamp_format = '%Y-%h-%d-%H:%M:%S' # Year-Monthname-Day-Hour-Minute-Second 
+    now = datetime.now() # get current timestamp 
+    timestamp = now.strftime(timestamp_format) 
+    with open("./etl_project_log.txt","a") as f: 
+        f.write(timestamp + ' : ' + message + '\n')
+
+
+log_progress('Preliminaries complete. Initiating ETL process')
+df = extract(url, table_attribs)
+
+log_progress('Data extraction complete. Initiating Transformation process')
+df = transform(df)
+
+log_progress('Data transformation complete. Initiating loading process')
+load_to_csv(df, csv_path)
+
+log_progress('Data saved to CSV file')
+sql_connection = sq.connect('World_Economies.db')
+
+log_progress('SQL Connection initiated.')
+load_to_db(df, sql_connection, table_name)
+
+log_progress('Data loaded to Database as table. Running the query')
+query_statement = f"SELECT * from {table_name} WHERE GDP_USD_billions >= 100"
+
+run_query(query_statement, sql_connection)
+log_progress('Process Complete.')
+sql_connection.close()
 
 
 
