@@ -23,3 +23,14 @@ for ((i=1; i<$nlines; i++)); do
     column_3[$i]=$((column_2[$i] - column_1[$i]))
 done
 echo "${column_3[@]}"
+
+## Combining the new array with the csv file
+# writing the new array to file
+# initializing the file with a header
+echo "${column_3[0]}" > column_3.txt
+for ((i=1; i<$nlines; i++)); do
+    echo "${column_3[$i]}" >> column_3.txt
+done
+paste -d "," $csv_file column_3.txt > report.csv
+
+
