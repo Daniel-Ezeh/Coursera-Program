@@ -4,3 +4,5 @@
 py_env/
 
 *.pyc
+
+raw_data*
