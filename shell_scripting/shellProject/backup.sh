@@ -52,12 +52,13 @@ yesterdayTS=$(($currentTS - (24 * 60 * 60)))
 
 declare -a toBackup
 
-for file in $() # [TASK 9]
+for file in $(ls) # [TASK 9]
 do
   # [TASK 10]
-  if (())
+  if ((`date -r $file +%s` > $yesterdayTS))
   then
     # [TASK 11]
+    toBackup+=($file)
   fi
 done
 
