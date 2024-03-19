@@ -16,18 +16,18 @@ then
 fi
 
 # [TASK 1]
-targetDirectory=
-destinationDirectory=
+targetDirectory=$1
+destinationDirectory=$2
 
 # [TASK 2]
-echo ""
-echo ""
+echo "$targetDirectory"
+echo "$destinationDirectory"
 
 # [TASK 3]
-currentTS=``
+currentTS=$(date +%s)
 
 # [TASK 4]
-backupFileName=""
+backupFileName=$("backup-[$curentTS].tar.gz")
 
 # We're going to:
   # 1: Go into the target directory
@@ -37,18 +37,18 @@ backupFileName=""
 # To make things easier, we will define some useful variables...
 
 # [TASK 5]
-origAbsPath=``
+origAbsPath=$(pwd)
 
 # [TASK 6]
 cd # <-
-destDirAbsPath=``
+destDirAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject/destionationDirectory`
 
 # [TASK 7]
-cd # <-
-cd # <-
+cd  $origAbsPath # <-
+cd $destDirAbsPath  #<-
 
 # [TASK 8]
-yesterdayTS=
+yesterdayTS=$(($currentTS - (24 * 60 * 60)))
 
 declare -a toBackup
 
