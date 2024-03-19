@@ -38,21 +38,22 @@ backupFileName="backup_[$currentTS].tar.gz"
 
 # [TASK 5]
 origAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject`
+targetDirPath=`/home/project/Coursera-Program/shell_scripting/shellProject/targetDirectory`
 
 # [TASK 6]
-cd # <-
 destDirAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject/destinationDirectory`
+cd $destDirAbsPath
 
 # [TASK 7]
 cd  $origAbsPath # <-
-#cd $destDirAbsPath  #<-
+cd $targetDirPath  #<-
 
 # [TASK 8]
 yesterdayTS=$(($currentTS - (24 * 60 * 60)))
 
 declare -a toBackup
 
-for file in "$origAbsPath/important-documents/" # [TASK 9]
+for file in $(ls) # [TASK 9]
 do
   # [TASK 10]
   if ((`date -r $file +%s` > $yesterdayTS)) #&& (( -f "$file" ))
