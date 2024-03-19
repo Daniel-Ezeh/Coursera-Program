@@ -37,16 +37,16 @@ backupFileName="backup_[$currentTS].tar.gz"
 # To make things easier, we will define some useful variables...
 
 # [TASK 5]
-origAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject`
-targetDirPath=`/home/project/Coursera-Program/shell_scripting/shellProject/targetDirectory`
+origAbsPath="/home/project/Coursera-Program/shell_scripting/shellProject/"
+targetDirPath="/home/project/Coursera-Program/shell_scripting/shellProject/targetDirectory/"
 
 # [TASK 6]
-destDirAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject/destinationDirectory/`
+destDirAbsPath="/home/project/Coursera-Program/shell_scripting/shellProject/destinationDirectory/"
 cd $destDirAbsPath
 
 # [TASK 7]
-cd  $origAbsPath # <-
 cd $targetDirPath  #<-
+cd $origAbsPath # <-
 
 # [TASK 8]
 yesterdayTS=$(($currentTS - (24 * 60 * 60)))
