@@ -41,7 +41,7 @@ origAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject`
 targetDirPath=`/home/project/Coursera-Program/shell_scripting/shellProject/targetDirectory`
 
 # [TASK 6]
-destDirAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject/destinationDirectory`
+destDirAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject/destinationDirectory/`
 cd $destDirAbsPath
 
 # [TASK 7]
