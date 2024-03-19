@@ -27,7 +27,7 @@ echo "$destinationDirectory"
 currentTS=$(date +%s)
 
 # [TASK 4]
-backupFileName="backup_$currentTS.tar.gz"
+backupFileName="backup_[$currentTS].tar.gz"
 
 # We're going to:
   # 1: Go into the target directory
@@ -37,25 +37,25 @@ backupFileName="backup_$currentTS.tar.gz"
 # To make things easier, we will define some useful variables...
 
 # [TASK 5]
-origAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject/destionationDirectory`
+origAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject`
 
 # [TASK 6]
 cd # <-
-destDirAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject/important-documents`
+destDirAbsPath=`/home/project/Coursera-Program/shell_scripting/shellProject/destinationDirectory`
 
 # [TASK 7]
 cd  $origAbsPath # <-
-cd $destDirAbsPath  #<-
+#cd $destDirAbsPath  #<-
 
 # [TASK 8]
 yesterdayTS=$(($currentTS - (24 * 60 * 60)))
 
 declare -a toBackup
 
-for file in $(ls) # [TASK 9]
+for file in "$origAbsPath/important-documents/" # [TASK 9]
 do
   # [TASK 10]
-  if ((`date -r $file +%s` > $yesterdayTS))
+  if ((`date -r $file +%s` > $yesterdayTS)) #&& (( -f "$file" ))
   then
     # [TASK 11]
     toBackup+=($file)
