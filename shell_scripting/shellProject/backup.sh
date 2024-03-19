@@ -63,6 +63,7 @@ do
 done
 
 # [TASK 12]
+tar -czvf $backupFileName ${toBackup[@]}
 
 # [TASK 13]
 
