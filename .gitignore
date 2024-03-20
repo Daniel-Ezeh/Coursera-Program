@@ -6,3 +6,5 @@ py_env/
 *.pyc
 
 raw_data*
+
+*.ipynb_checkpoints/*
