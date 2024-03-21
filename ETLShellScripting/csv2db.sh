@@ -27,7 +27,13 @@ echo "Transforming data"
 
 # read the extracted data and replace the colons with comma
  tr ":" "," < extracted-data.txt > transformed-data.csv
- 
 
+# Loading phase
+echo "Loading data"
+
+# Send the instructions to connect to 'template1' and
+# copy the file to the table 'users' through command pipeline.
+
+echo "\c template1;\COPY users FROM '/home/project/Coursera-Program/ETLShellScripting/transformed-data.csv' DELIMITERS ','CSV;" | psql --username=postres --host=localhost  
 
 
