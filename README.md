@@ -24,7 +24,7 @@ services:
 
 # apache/airflow:2.6.0-python3.9   airflow:0.0.1
   webserver:
-    image: apache/airflow:2.3.0
+    image: airflow:0.0.1
     command: webserver
     entrypoint: ['/opt/airflow/script/entrypoint.sh']
     depends_on:
@@ -53,7 +53,7 @@ services:
       - confluent
 
   scheduler:
-    image: apache/airflow:2.3.0
+    image: apache/airflow:2.6.0-python3.9
     depends_on:
       postgres:
         condition: service_healthy
