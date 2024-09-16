@@ -1,0 +1,13 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: airflow
+    init: docker-compose up -d
+    # command: docker-compose logs -f
+    # openMode: preview
+
+ports:
+  - name: airflow
+    port: 8081
+    onOpen: open-preview
