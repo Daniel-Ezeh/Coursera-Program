@@ -8,3 +8,5 @@ py_env/
 raw_data*
 
 *.ipynb_checkpoints/
+
+/AirflowSetup/.venv
