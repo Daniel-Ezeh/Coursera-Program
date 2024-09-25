@@ -26,6 +26,6 @@ if __name__ == "__main__":
     # Example usage
     input_file = 'plus_codes_for_bigquery.csv'  
     output_file = 'cleaned_pluscode.csv'  
-    regex_pattern = r'^5F'  # Match lines starting with "5F"
+    regex_pattern = r'^6G[5-9][H-X]'  # Match lines starting with "5F"
 
     filter_csv(input_file, output_file, regex_pattern)
