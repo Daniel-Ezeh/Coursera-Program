@@ -3,3 +3,5 @@ pandas
 keras
 requests
 tensorflow
+scikit-learn
+matplotlib
